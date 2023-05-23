@@ -65,6 +65,13 @@ def add_pct(session, region_name, ip_address, pct_details):
         uri = 'v2/native/regions/{}/86/{}/pct/defined'.format(ip_address, region_name)
         res = session.post(uri, req_body, 'Unable to complete Update PCT API request.')
 
+def add_pipeline(session, region_name, ip_address, group_name, pipeline_details):
+    for pipeline_entry in pipeline_details['PIPELINE_Entries']:
+        resource_name = pipeline_entry['Resource']
+        req_body = pipeline_entry['Parameters']
+        uri = 'native/v1/regions/{}/86/{}/pipeline/detail/{}/{}'.format(ip_address, region_name, group_name, resource_name)
+        res = session.post(uri, req_body, 'Unable to complete Update PIPELINE API request.')
+
 def update_sit_in_use(session, region_name, ip_address, sit_name):
     uri = 'native/v1/regions/{}/86/{}'.format(ip_address, region_name)
     sit_attribute ='{\"mfCASCICSSIT\": \"' + sit_name + '\"}'

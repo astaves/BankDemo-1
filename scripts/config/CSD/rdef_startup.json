@@ -13,5 +13,8 @@
  "lstItem11": "DFHTERM",
  "lstItem12": "DFHSIGN",
  "lstItem13": "BANKGRP",
- "lstItem14": "BANKGRP2"
+ "lstItem14": "BANKGRP2",
+ "lstItem15": "DFHWEB",
+ "lstItem16": "DFHPIPE",
+ "lstItem17": "BANKCWS"
 }

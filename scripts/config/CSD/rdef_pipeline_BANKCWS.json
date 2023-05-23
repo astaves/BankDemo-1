@@ -1,0 +1,14 @@
+{
+  "PIPELINE_Entries": [
+    {
+      "group": "BANKCWS",
+      "Resource": "JSONPIPE",
+      "Parameters": {
+        "pplEnable": "Y",
+        "pplRspWait": "DEFT",
+        "pplCfgFile": "JSONPIPE.xml",
+        "pplWebDir": ""
+      }
+    }
+  ]
+}

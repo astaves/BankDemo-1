@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="EBCDIC-CP-US"?>
+<provider_pipeline xmlns="http://www.ibm.com/software/htp/cics/pipeline">
+  <service>
+    <terminal_handler>
+      <cics_json_handler_java>
+        <jvmserver>DFH$AXIS</jvmserver>
+        <repository>/usr/lpp/cicsts/cicsts51/lib/pipeline/repository</repository>
+      </cics_json_handler_java>
+    </terminal_handler>
+  </service>
+  <apphandler_class>com.ibm.cicsts.axis2.CICSAxis2ApplicationHandler</apphandler_class>
+</provider_pipeline>

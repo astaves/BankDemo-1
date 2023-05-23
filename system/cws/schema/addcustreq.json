@@ -1,0 +1,105 @@
+{
+  "$schema" : "http:\/\/json-schema.org\/draft-04\/schema#",
+  "title" : "addcust",
+  "description" : "Micro Focus Enterprise Developer - This generated JSON schema document is provided 'as is' and without any warranties of any kind, and may be used by licensee solely for the purposes of describing a REST API. Micro Focus shall not be responsible for and hereby disclaims any liabilities that may result from licensee's use of or modifications to this generated JSON schema document.",
+  "type" : "object",
+  "properties" : 
+  {
+    "addcust" : 
+    {
+      "type" : "object",
+      "properties" : 
+      {
+        "input_parms" : 
+        {
+          "type" : "object",
+          "properties" : 
+          {
+            "BCS_RECORD" : 
+            {
+              "type" : "object",
+              "properties" : 
+              {
+                "BCS_REC_PID" : 
+                {
+                  "type" : "string",
+                  "maxLength" : 5
+                },
+                "BCS_REC_NAME" : 
+                {
+                  "type" : "string",
+                  "maxLength" : 25
+                },
+                "BCS_REC_NAME_FF" : 
+                {
+                  "type" : "string",
+                  "maxLength" : 25
+                },
+                "BCS_REC_SIN" : 
+                {
+                  "type" : "string",
+                  "maxLength" : 9
+                },
+                "BCS_REC_ADDR1" : 
+                {
+                  "type" : "string",
+                  "maxLength" : 25
+                },
+                "BCS_REC_ADDR2" : 
+                {
+                  "type" : "string",
+                  "maxLength" : 25
+                },
+                "BCS_REC_STATE" : 
+                {
+                  "type" : "string",
+                  "maxLength" : 2
+                },
+                "BCS_REC_CNTRY" : 
+                {
+                  "type" : "string",
+                  "maxLength" : 6
+                },
+                "BCS_REC_POST_CODE" : 
+                {
+                  "type" : "string",
+                  "maxLength" : 6
+                },
+                "BCS_REC_TEL" : 
+                {
+                  "type" : "string",
+                  "maxLength" : 12
+                },
+                "BCS_REC_EMAIL" : 
+                {
+                  "type" : "string",
+                  "maxLength" : 30
+                },
+                "BCS_REC_SEND_MAIL" : 
+                {
+                  "type" : "string",
+                  "maxLength" : 1
+                },
+                "BCS_REC_SEND_EMAIL" : 
+                {
+                  "type" : "string",
+                  "maxLength" : 1
+                },
+                "BCS_REC_ATM_PIN" : 
+                {
+                  "type" : "string",
+                  "maxLength" : 4
+                },
+                "BCS_REC_FILLER" : 
+                {
+                  "type" : "string",
+                  "maxLength" : 74
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

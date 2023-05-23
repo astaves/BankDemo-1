@@ -622,6 +622,15 @@ listener=Web Services and J2EE
         <group>
           <name>BANKGRP2</name>
         </group>
+        <group>
+          <name>DFHWEB</name>
+        </group>
+        <group>
+          <name>DFHPIPE</name>
+        </group>
+        <group>
+          <name>BANKCWS</name>
+        </group>
       </startuplist>
       <startuplist>
         <name>PLIVSAM</name>
@@ -676,6 +685,14 @@ listener=Web Services and J2EE
   </StartupListConfig>
   <GroupsConfig version="1">
     <resources>
+      <pipeline>
+        <name>JSONPIPE</name>
+        <group>BANKCWS</group>
+        <configfile>$ESP/cws/xml/JSONPIPE.xml</configfile>
+        <respwait>DEFT</respwait>
+        <status>ENABLED</status>
+        <wsdir>$ESP/cws/wsbind/JSONPIPE</wsdir>
+      </pipeline>
       <file>
         <name>BNKACC</name>
         <group>BANKGRP</group>

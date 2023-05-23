@@ -8,6 +8,11 @@
     "entName": "BANKGRP2",
     "resNm": "BANKGRP2",
     "resDesc": "Resource Group 2 for the BANKDEMO Application"
+  },
+  {
+    "entName": "BANKCWS",
+    "resNm": "BANKCWS",
+    "resDesc": "CWS Resource Group for the BANKDEMO Application"
   }
 ]
 }

@@ -35,7 +35,7 @@ from ESCWA.region_control import add_region, start_region, del_region, confirm_r
 from ESCWA.region_config import update_region, update_region_attribute, update_alias, add_initiator
 from ESCWA.comm_control import set_jes_listener, set_commsserver_local
 from utilities.exceptions import ESCWAException
-from ESCWA.resourcedef import  add_sit, add_Startup_list, add_groups, add_fct, add_ppt, add_pct, update_sit_in_use
+from ESCWA.resourcedef import  add_sit, add_Startup_list, add_groups, add_fct, add_ppt, add_pct, add_pipeline, update_sit_in_use
 from ESCWA.mq_config import add_mq_listener
 from build.MFBuild import  run_ant_file
 from pathlib import Path
@@ -569,6 +569,30 @@ def create_region(main_configfile):
         sys.exit(1)
     else:
         write_log('Region {} restarted successfully'.format(region_name))
+
+    if len(pac_name) > 0 and pac_config is None:
+        write_log ('No PAC config, skipping adding pipeline resource updates')
+    else:
+        pipeline_match_pattern = os.path.join(resourcedef_dir, 'rdef_pipeline_*.json')
+        pipeline_filelist = glob.glob(pipeline_match_pattern)
+        if pipeline_filelist != '':
+            write_log ('CICS Resource PIPELINE definitions found - being added')  
+            for filename in pipeline_filelist:
+                pipeline_details = read_json(filename)
+                for each_pipeline in pipeline_details['PIPELINE_Entries']:
+                    group_name = each_pipeline['group']
+                    pipeline_name = each_pipeline['Resource']
+                    pplcfgname = each_pipeline['Parameters']['pplCfgFile']
+                    pplwebsvcdirname = each_pipeline['Parameters']['pplWebDir']
+                    each_pipeline['Parameters']['pplCfgFile'] = os.path.join(sys_base, 'cws', 'xml', pplcfgname)
+                    if pplwebsvcdirname != '':
+                        each_pipeline['Parameters']['pplWebDir'] = os.path.join(sys_base, 'cws', 'wsbind', pplwebsvcdirname)
+                    else:
+                        each_pipeline['Parameters']['pplWebDir'] = os.path.join(sys_base, 'cws', 'wsbind', pipeline_name)
+
+            add_pipeline(session, region_name,ip_address,group_name, pipeline_details)
+        else:
+            write_log('pipeline match pattern failed')
 
     write_log('Micro Focus Demo environment has been provisioned')
 

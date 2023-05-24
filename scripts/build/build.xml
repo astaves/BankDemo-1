@@ -34,6 +34,7 @@ WITH THIS SOFTWARE.
 	<property name="cobolFailOnError" value="true"/>
 	<property name="cobollinkFailOnError" value="${failOnError}"/>
 	<property name="bmsFailOnError" value="${failOnError}"/>
+	<property name="bldDebug" value="true"/>
 
 	<!--  ******************************  -->
 	<!--  * OS-specific initialisation *  -->
@@ -119,7 +120,7 @@ WITH THIS SOFTWARE.
 	</target>
 	
 	<target name="cobol.compile.cfg.New_Configuration">
-		<cobol verbose="true" debug="true" configuration="New Configuration" settingsDir=".settings" useDirectiveSet="true" threadedRts="false" destdir="${loaddir}" is64bit="${64bitset}" failonerror="${cobolFailOnError}" forceCompile="${forceCompile}" threadCount="${buildThreadCount}">
+		<cobol verbose="true" debug="${bldDebug}" configuration="New Configuration" settingsDir=".settings" useDirectiveSet="true" threadedRts="false" destdir="${loaddir}" is64bit="${64bitset}" failonerror="${cobolFailOnError}" forceCompile="${forceCompile}" threadCount="${buildThreadCount}">
 			<mffilelist refid="cobol.copybook.locations"/>
 			<fileset refid="cobol_file_set_1"/>
 		</cobol>
@@ -154,7 +155,7 @@ WITH THIS SOFTWARE.
 
 	<target name="clean.cfg.New_Configuration">
 		<delete file="${loaddir}/DirsetBuild.lbr"/>
-		<cobolclean debug="true" destdir="${loaddir}" desttype="${dllext}">
+		<cobolclean debug="${bldDebug}" destdir="${loaddir}" desttype="${dllext}">
 			<mffilelist refid="cobol_file_set_1"/>
 		</cobolclean>
 		<cobolclean destdir="${loaddir}" desttype="${dllext}">

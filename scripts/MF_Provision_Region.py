@@ -428,6 +428,27 @@ def create_region(main_configfile):
         else:
             write_log('pct match pattern failed')
 
+        pipeline_match_pattern = os.path.join(resourcedef_dir, 'rdef_pipeline_*.json')
+        pipeline_filelist = glob.glob(pipeline_match_pattern)
+        if pipeline_filelist != '':
+            write_log ('CICS Resource PIPELINE definitions found - being added')  
+            for filename in pipeline_filelist:
+                pipeline_details = read_json(filename)
+                for each_pipeline in pipeline_details['PIPELINE_Entries']:
+                    group_name = each_pipeline['group']
+                    pipeline_name = each_pipeline['Resource']
+                    pplcfgname = each_pipeline['Parameters']['pplCfgFile']
+                    pplwebsvcdirname = each_pipeline['Parameters']['pplWebDir']
+                    each_pipeline['Parameters']['pplCfgFile'] = os.path.join(sys_base, 'cws', 'xml', pplcfgname)
+                    if pplwebsvcdirname != '':
+                        each_pipeline['Parameters']['pplWebDir'] = os.path.join(sys_base, 'cws', 'wsbind', pplwebsvcdirname)
+                    else:
+                        each_pipeline['Parameters']['pplWebDir'] = os.path.join(sys_base, 'cws', 'wsbind', pipeline_name)
+
+            add_pipeline(session, region_name,ip_address,group_name, pipeline_details)
+        else:
+            write_log('pipeline match pattern failed')
+
         ## The following code adds MQ listeners as defined in mq.json
         if  main_config['MQ'] == True:
             write_log('Region requires MQ settings - being added')
@@ -569,30 +590,6 @@ def create_region(main_configfile):
         sys.exit(1)
     else:
         write_log('Region {} restarted successfully'.format(region_name))
-
-    if len(pac_name) > 0 and pac_config is None:
-        write_log ('No PAC config, skipping adding pipeline resource updates')
-    else:
-        pipeline_match_pattern = os.path.join(resourcedef_dir, 'rdef_pipeline_*.json')
-        pipeline_filelist = glob.glob(pipeline_match_pattern)
-        if pipeline_filelist != '':
-            write_log ('CICS Resource PIPELINE definitions found - being added')  
-            for filename in pipeline_filelist:
-                pipeline_details = read_json(filename)
-                for each_pipeline in pipeline_details['PIPELINE_Entries']:
-                    group_name = each_pipeline['group']
-                    pipeline_name = each_pipeline['Resource']
-                    pplcfgname = each_pipeline['Parameters']['pplCfgFile']
-                    pplwebsvcdirname = each_pipeline['Parameters']['pplWebDir']
-                    each_pipeline['Parameters']['pplCfgFile'] = os.path.join(sys_base, 'cws', 'xml', pplcfgname)
-                    if pplwebsvcdirname != '':
-                        each_pipeline['Parameters']['pplWebDir'] = os.path.join(sys_base, 'cws', 'wsbind', pplwebsvcdirname)
-                    else:
-                        each_pipeline['Parameters']['pplWebDir'] = os.path.join(sys_base, 'cws', 'wsbind', pipeline_name)
-
-            add_pipeline(session, region_name,ip_address,group_name, pipeline_details)
-        else:
-            write_log('pipeline match pattern failed')
 
     write_log('Micro Focus Demo environment has been provisioned')
 

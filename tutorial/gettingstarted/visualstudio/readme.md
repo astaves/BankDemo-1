@@ -1,7 +1,9 @@
 # Getting started with Micro Focus Enterprise Developer for Visual Studio 2022
 
 ## Overview
+
 This set of tutorials guides you through the use of Micro Focus Enterprise Developer for Visual Studio 2022. They provide a basic understanding of how the product operates. They'll walk you through:
+
 - [Starting the Visual Studio Integrated Development Environment](#starting-the-visual-studio-integrated-development-environment)
 - [Adding files to your Visual Studio project](#adding-files-to-your-visual-studio-project)
 - [File, Project and IDE properties and settings](#file-project-and-ide-properties-and-settings)
@@ -15,7 +17,6 @@ This set of tutorials guides you through the use of Micro Focus Enterprise Devel
 These tutorials are designed for developers who have experience with developing COBOL on the mainframe but do not necessarily have a working knowledge of the Visual Studio Integrated Development Environment (IDE). The tutorials provide a basic understanding of the features offered in Enterprise Developer for Visual Studio 2022 to develop and maintain both simple COBOL and mainframe subsystem applications.
 
 Other tutorials, which are designed for Administrators, are available.
-
 
 **Download the demonstration application**
 
@@ -47,7 +48,7 @@ A preconfigured, fully executing application, BankDemo, is available from the Mi
 
    If you have an active firewall on the machine that is running your Directory Server and enterprise server instances, and you want remote clients to be able to connect to them, you must ensure that the firewall allows access to the ports that you are using.
     
-   For example, Directory Server is configured, by default, to use port 86. Your must configure your firewall to allow TCP and UDP access to this port. Similarly, the enterprise server instance you create as part of this tutorial, BANKDEMO, has listeners which use ports 9003 and 9023. For remote clients to be able to submit JCL jobs or connect a TN3270 terminal to these listeners, your firewall must permit access to these ports.
+   For example, Directory Server is configured, by default, to use port 86. You must configure your firewall to allow TCP and UDP access to this port. Similarly, the enterprise server instance you create as part of this tutorial, BANKDEMO, has listeners which use ports 9003 and 9023. For remote clients to be able to submit JCL jobs or connect a TN3270 terminal to these listeners, your firewall must permit access to these ports.
 
    We recommend that, if you want remote users to access Enterprise Server functionality through the firewall, you use fixed port values so that you can control access via these.
 

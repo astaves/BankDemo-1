@@ -679,13 +679,23 @@ This sample provides a PowerShell script that creates the region definition to u
 
     This executes the script and creates the Enterprise Server region definition file, **BANKDEMO.xml**, in the same folder. The file is configured for the location in which you have saved the sample files.
 
-To import the definition of the Bankdemo logical server (LSER) in Enterprise Server:
+Ensure that the default settings are applied to the Directory Sever:
 
-1.  In Visual Studio, open the Server Explorer window.
+1.  Click the **Start** menu and open the **Services** application. Navigate to Micro Focus Directory Server to view its status and set it to **Running** if it is not already started.
+
+2.  In Visual Studio, open the Server Explorer window.
 
     If the window is not visible, click **View** \> **Server Explorer** (or **View** \> **Other Windows** \> **Server Explorer**).
 
     ![](images/03218b9fa5693aaca14ff3cf3aa3dd1b.jpg) **Tip:** Use the Auto Hide button (![](images/bf74b6a329048075497d723393231eba.jpg)) in the Server Explorer toolbar to pin the window to the IDE window.
+
+3.  Right-click **Micro Focus Servers** and select **Directory Server Configuration**. This opens the Micro Focus Directory Server window. 
+
+4.  Ensure that Host name is localhost and the Port number is 86.
+
+To import the definition of the Bankdemo logical server (LSER) in Enterprise Server:
+
+1.  In Visual Studio, open the Server Explorer window.
 
 2.  Expand **Micro Focus Servers**.
 

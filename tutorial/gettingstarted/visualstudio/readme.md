@@ -819,6 +819,14 @@ In the previous step, Unit Testing the Batch Application, you used the BANKDEMO 
 
 As with JCL, execution of the jobs requires a previously configured Micro Focus enterprise server.
 
+Before you process, ensure that Micro Focus Host Access for the Cloud (HA Cloud) is running:
+
+1. Go the the Start menu and open the Services application.
+
+2. Navigate to the Micro Focus HA Cloud service and check that its status is set to **Running**.
+
+3. If it is not running, right-click and click **Start**.
+
 **Executing the CICS application**
 
 The CICS application requires that you use a 3270 terminal emulator. The installation of Enterprise Developer includes the Micro Focus Rumba+ Desktop emulator. Rumba+ Desktop is available as a standalone application, Rumba+ Desktop, and is also available as a TN3270 Mainframe Display embedded within the IDE.

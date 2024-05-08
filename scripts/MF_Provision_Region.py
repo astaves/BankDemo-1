@@ -29,7 +29,7 @@ from utilities.input import read_json, read_txt
 from utilities.output import write_json, write_log 
 from utilities.filesystem import create_new_system, deploy_application, deploy_system_modules, deploy_partitioned_data
 from utilities.resource import add_postgresxa, catalog_datasets, write_secret
-from utilities.deploy import deploy_application_option, deploy_dfhdrdat_postgres_pac
+from utilities.deploy import deploy_application_option, deploy_dfhdrdat_postgres_pac, create_db_vault_secrets
 from database.odbc import check_odbc_driver_installed
 from ESCWA.region_control import add_region, start_region, del_region, confirm_region_status, stop_region
 from ESCWA.region_config import update_region, update_region_attribute, update_alias, add_initiator
@@ -254,6 +254,7 @@ def create_region(main_configfile):
             dfhdrdat = os.path.join(rdef, 'dfhdrdat')
             shutil.chown(dfhdrdat, esuid, esuid)
             write_log ('Set owner of {} to {}'.format(dfhdrdat, esuid))
+        create_db_vault_secrets(os_type, main_config, esuid)
 
     
     base_config = os.path.join(config_dir, base_config)
@@ -264,6 +265,17 @@ def create_region(main_configfile):
     resourcedef_dir = os.path.join(config_dir, 'CSD')
 
     session = EscwaSession("http", ip_address, 10086)
+
+    try:
+        if os_type == 'Linux':
+            mfsecretsadmin = os.path.join(install_dir, 'mfsecretsadmin')
+        else:
+            mfsecretsadmin = os.path.join(install_dir, 'mfsecretsadmin.exe')
+        session.logon(mfsecretsadmin)
+    except ESCWAException as exc:
+        write_log('Unable to logon to ESCWA.')
+        write_log(exc)
+        sys.exit(1)
         
     try:
         write_log ('Region \033[1m{}\033[0m being added'.format(region_name))

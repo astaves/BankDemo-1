@@ -3,9 +3,7 @@
 ## Overview
 This set of tutorials guides you through the use of Micro Focus Enterprise Developer for Eclipse. They provide a basic understanding of how the product operates.
 
-These tutorials are designed for developers who have experience with developing COBOL on the mainframe but do not necessarily have a working knowledge of the Eclipse Integrated Development
-
-Environment (IDE). The tutorials provide a basic understanding of the features offered in Enterprise Developer for Eclipse to develop and maintain both simple COBOL and mainframe subsystem applications.
+These tutorials are designed for developers who have experience with developing COBOL on the mainframe but do not necessarily have a working knowledge of the Eclipse Integrated Development Environment (IDE). The tutorials provide a basic understanding of the features offered in Enterprise Developer for Eclipse to develop and maintain both simple COBOL and mainframe subsystem applications.
 
 Other tutorials, which are designed for Administrators, are available.
 

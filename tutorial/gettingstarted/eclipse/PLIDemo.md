@@ -20,6 +20,23 @@ Please see the Micro Focus product documentation for more information.
 
 ## How to Run the Demonstration
 
+### Connect to the default ESCWA server
+
+Ensure that **Server Explorer** contains a connection to the default Enterprise Server Common Web Administration (ESCWA) server. Note that existing workspaces may already have this connection.
+
+1. In the **Server Explorer** view, right-click and select **New > Enterprise Server Common Web Administration Connection**.
+
+    The **New Enterprise Server Common Web Administration Connection** dialog box is displayed.
+2. In the **Name** field, type **Local**.
+3. In the **Server address** field, type **localhost**.
+4. In the **Server port** field, leave as the default 10086.
+5. If the server connection is TLS-enabled, select **TLS Enabled**, and then click **Browse** and select the appropriate certificate.
+>**Note**: If **TLS Enabled** is selected, but you do not specify a certificate, the default Java keystore is searched for a valid one.
+6. Click **Finish**.
+The new ESCWA connection is displayed at the top level, in the **Server Explorer**.
+
+
+
 ### Import the supplied BANKDEMO enterprise server:
 
 **Note:** If you have already imported the BANKDEMO enterprise server region for the IDE Getting Started tutorial, you scan skip these steps.

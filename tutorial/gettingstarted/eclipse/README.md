@@ -292,7 +292,7 @@ Notice that some data items in the Data Division are crossed out. This is becaus
 
 **Viewing data definitions**
 
-1. Hover over a data item in the Procedure Division to see information about the data item and how ma times it is used in the program. 
+1. Hover over a data item in the Procedure Division to see information about the data item and how many times it is used in the program. 
 2. Double-click a data item or paragraph name to see the IDE highlights all their occurrences in the code.
 
 **Breadcrumbs**              
@@ -306,9 +306,6 @@ The ![](images/65bc336b21e1ecd824bc6e2a37508068.jpg) (**Toggle Context Breadcrum
 **Marking text and block mode**
 
 You can either use the mouse to mark a block of text or click ![](images/2a6ec092a713afe86e854b35e22548db.jpg) (**Toggle Block Selection Mode**) and select square blocks of text. When a selection is made, you can cut or copy it. 
-
-This turns the data items and the paragraph names you hover over into hyperlinks.
-
 
 **Rename** 
 

@@ -31,6 +31,19 @@ If you have already imported the BANKDEMO enterprise server as part of the "[Get
     
    The BANKDEMO server should appear in Server Explorer under **Local**.
 
+### Start the HACloud session server
+
+You must start the HACloud session server before attempting to use the HACloud TN3270 terminal emulator. To do this you need to start the respective Windows service.
+
+1. Ensure you have a 64-bit Java installed and added to the PATH environment variable.
+2. Open the Windows Service Manager.
+3. Go to **Micro Focus HA Cloud** and click **Start the service**. 
+4. Alternatively, you can start the session by opening a command prompt and executing the following command:
+
+    ```
+    net start hacloud
+    ```
+
 
 ### Configure the BANKDEMO enterprise server for PL/I:
     

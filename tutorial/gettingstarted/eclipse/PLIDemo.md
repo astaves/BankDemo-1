@@ -35,8 +35,6 @@ Ensure that **Server Explorer** contains a connection to the default Enterprise 
 6. Click **Finish**.
 The new ESCWA connection is displayed at the top level, in the **Server Explorer**.
 
-
-
 ### Import the supplied BANKDEMO enterprise server:
 
 **Note:** If you have already imported the BANKDEMO enterprise server region for the IDE Getting Started tutorial, you scan skip these steps.
@@ -45,6 +43,32 @@ The new ESCWA connection is displayed at the top level, in the **Server Explorer
 2. On the **Server Explorer** tab, right-click **Local** and select **Import Server**.
 4. Click **Browse**, select the `tutorial/BANKDEMO.xml` file, and then click **Finish**.
     The BANKDEMO server should appear in Server Explorer under **Local**.
+
+### Start the HACloud session server
+
+You must start the HACloud session server before attempting to use the HACloud TN3270 terminal emulator. To do this you need to start the respective Windows service (Windows) or the `startsessionserver.sh` script (UNIX).
+
+**Windows**
+
+1. Ensure you have a 64-bit Java installed and added to the PATH environment variable.
+2. Open the Windows Service Manager.
+3. Go to **Micro Focus HA Cloud** and click **Start the service**. 
+4. Alternatively, you can start the session by opening a command prompt and executing the following command:
+
+    ```
+    net start hacloud
+    ```
+
+**UNIX**
+
+1. Ensure that the installed Java is added to the PATH environment variable.
+2. Start the Enterprise Server region that runs the application you want to connect to.
+3. Open a terminal and set up the COBOL environment in it.
+4. Run the following to start the session server:
+
+    ```
+    startsessionserver.sh
+    ```
 
 ### Import the INCLUDES, FETCHABLES, and BANKMAIN projects into an Eclipse workspace:
 

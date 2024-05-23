@@ -15,7 +15,7 @@ This demonstration requires:
 - A TN3270 terminal emulator to run the CICS application. 
 
 **Note:**
-Licenses for Micro Focus Rumba+ Desktop and the HACloud Session Server TN3270 emulator are included with Enterprise Developer. If you do not have Rumba+ Desktop installed, please refer to the Micro Focus Web site.
+A license for Micro Focus Host Access for the Cloud (HACloud) TN3270 emulator is included with Enterprise Developer. 
 
 ## How to Run the Demonstration
 ### Import the supplied Bankdemo enterprise server:
@@ -30,6 +30,19 @@ If you have already imported the BANKDEMO enterprise server as part of the "[Get
 3. Click **Import server definition file**, and select the **tutorial\BANKDEMO.xml** file, then click **OK**.
     
    The BANKDEMO server should appear in Server Explorer under **Local**.
+
+### Start the HACloud session server
+
+You must start the HACloud session server before attempting to use the HACloud TN3270 terminal emulator. To do this you need to start the respective Windows service.
+
+1. Ensure you have a 64-bit Java installed and added to the PATH environment variable.
+2. Open the Windows Service Manager.
+3. Go to **Micro Focus HA Cloud** and click **Start the service**. 
+4. Alternatively, you can start the session by opening a command prompt as administrator and executing the following command:
+
+    ```
+    net start mfhacloud
+    ```
 
 
 ### Configure the BANKDEMO enterprise server for PL/I:

@@ -740,7 +740,7 @@ As with JCL, execution of the jobs requires a previously configured Micro Focus 
 
 **Important:** You need Enterprise Developer or Enterprise Developer for z Systems to execute the application as running applications is not supported in Enterprise Developer Connect.
 
-Before you proceed, ensure that Micro Focus Host Access for the Cloud (HA Cloud) is running:
+Before you proceed, ensure that Micro Focus Host Access for the Cloud (HACloud) is running:
 
 1. Go the the Start menu and open the Services application.
 

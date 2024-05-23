@@ -15,7 +15,7 @@ This demonstration requires:
 - A TN3270 terminal emulator to run the CICS application. 
 
 **Note:**
-Licenses for Micro Focus Rumba+ Desktop and the HACloud Session Server TN3270 emulator are included with Enterprise Developer. If you do not have Rumba+ Desktop installed, please refer to the Micro Focus Web site.
+A license for Micro Focus Host Access for the Cloud (HACloud) TN3270 emulator is included with Enterprise Developer. 
 
 ## How to Run the Demonstration
 ### Import the supplied Bankdemo enterprise server:

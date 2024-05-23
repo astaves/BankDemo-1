@@ -53,10 +53,10 @@ You must start the HACloud session server before attempting to use the HACloud T
 1. Ensure you have a 64-bit Java installed and added to the PATH environment variable.
 2. Open the Windows Service Manager.
 3. Go to **Micro Focus HA Cloud** and click **Start the service**. 
-4. Alternatively, you can start the session by opening a command prompt and executing the following command:
+4. Alternatively, you can start the session by opening a command prompt as administrator and executing the following command:
 
     ```
-    net start hacloud
+    net start mfhacloud
     ```
 
 **UNIX**

@@ -41,7 +41,7 @@ def add_listener(session, region_name, ip_address, listener_config):
     res = session.get(uri, 'Unable to get Comm Server information.')
     comm_server = res.json()
     req_body = read_json(listener_config)
-    uri += '/{}/listener'.format(comm_server[0]['mfServerUID'])
+    uri += '/{}/listener'.format(comm_server[0]['mfUID'])
     res = session.post(uri, req_body, 'Unable to add listener.')
     return res
 

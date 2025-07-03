@@ -91,6 +91,12 @@ def set_MF_environment (os_type):
         if "COBDIR" in os.environ:
            return os.path.join(os.environ["COBDIR"], "bin")
 
+        pathCOBDIR = Path("/opt/rocketsoftware/EnterpriseDeveloper/bin")
+        if pathCOBDIR.is_dir():
+            return str(pathCOBDIR)
+        pathCOBDIR = Path("/opt/rocketsoftware/EnterpriseServer/bin")
+        if pathCOBDIR.is_dir():
+            return str(pathCOBDIR)
         pathCOBDIR = Path("/opt/microfocus/EnterpriseDeveloper/bin")
         if pathCOBDIR.is_dir():
             return str(pathCOBDIR)

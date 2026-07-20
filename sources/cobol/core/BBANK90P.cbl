@@ -1,6 +1,6 @@
       *****************************************************************
       *                                                               *
-      * Copyright 2010-2021 Rocket Software, Inc. or its affiliates.  *
+      * Copyright 2010-2025 Rocket Software, Inc. or its affiliates.  *
       * This software may be used, modified, and distributed          *
       * (provided this notice is included without modification)       *
       * solely for internal demonstration purposes with other         *
@@ -44,11 +44,11 @@
          05  WS-RETURN-FLAG                        PIC X(1).
            88  WS-RETURN-FLAG-OFF                  VALUE LOW-VALUES.
            88  WS-RETURN-FLAG-ON                   VALUE '1'.
-         05  WS-RETURN-MSG                         PIC X(75).
-           88  WS-RETURN-MSG-OFF                   VALUE SPACES.
          05  WS-PFK-FLAG                           PIC X(1).
            88  PFK-VALID                           VALUE '0'.
            88  PFK-INVALID                         VALUE '1'.
+         05  WS-RETURN-MSG                         PIC X(75)
+                                                   VALUE SPACES.
          05  WS-ERROR-MSG                          PIC X(75).
          05  WS-SUB1                               PIC S9(4) COMP.
          05  WS-SUB1-LIMIT                         PIC S9(4) COMP.
@@ -66,20 +66,15 @@
                VALUE '                                   '.
          05  WS-INF-DATA05.
            10  FILLER                              PIC X(40)
-               VALUE '     http://www.microfocus.com          '.
+               VALUE '    https://www.rocketsoftware.com      '.
            10  FILLER                              PIC X(35)
                VALUE '                                   '.
          05  WS-INF-DATA07.
            10  FILLER                              PIC X(40)
-               VALUE 'or call our office at 1-800-VS-COBOL    '.
+               VALUE 'or call our office at 1-855-577-4323    '.
            10  FILLER                              PIC X(35)
                VALUE '                                   '.
-         05  WS-INF-DATA08.
-           10  FILLER                              PIC X(40)
-               VALUE '                     (1-800-872-6265)   '.
-           10  FILLER                              PIC X(35)
-               VALUE '                                   '.
-         05  WS-INF-DATA10.
+         05  WS-INF-DATA09.
            10  FILLER                              PIC X(40)
                VALUE 'Thank you for your interest.            '.
            10  FILLER                              PIC X(35)
@@ -252,8 +247,7 @@
               MOVE WS-INF-DATA03 TO HELP01O-L03
               MOVE WS-INF-DATA05 TO HELP01O-L05
               MOVE WS-INF-DATA07 TO HELP01O-L07
-              MOVE WS-INF-DATA08 TO HELP01O-L08
-              MOVE WS-INF-DATA10 TO HELP01O-L10
+              MOVE WS-INF-DATA09 TO HELP01O-L09
            END-IF.
            MOVE HELP01O-DATA TO BANK-SCREEN90-DATA.
        POPULATE-SCR90-DATA-EXIT.

@@ -185,7 +185,7 @@ def create_region(main_configfile):
                 write_log('ERROR: PostgreSQL ODBC driver not found')
                 sys.exit(1)
  
-    #determine te individual component configuration files to be used
+    #determine the individual component configuration files to be used
     configuration_files = main_config["configuration_files"]
 
     #base_config is used for settings to create the base region definition
@@ -263,8 +263,7 @@ def create_region(main_configfile):
             dfhdrdat = os.path.join(rdef, 'dfhdrdat')
             shutil.chown(dfhdrdat, esuid, esuid)
             write_log ('Set owner of {} to {}'.format(dfhdrdat, esuid))
-            create_db_vault_secrets(os_type, main_config, esuid)
-
+        create_db_vault_secrets(os_type, main_config, esuid)
     
     base_config = os.path.join(config_dir, base_config)
     update_config = os.path.join(config_dir, update_config)
@@ -412,15 +411,7 @@ def create_region(main_configfile):
                 write_log(exc)
                 sys.exit(1)
 
-        #data_dir_1 hold the directory name, under the cwd that contains definitions of any datasets to be catalogued - this setting is optional
-        catalog_dir = os.path.join(sys_base, 'catalog')
-        catalog_datasets(session, cwd, region_name, ip_address, configuration_files, 'data_dir_1', None, catalog_dir)
-
-        #data_dir_3 hold the directory name, under the cwd that contains definitions of extra datasets to be catalogued - this setting is optional
-        catalog_datasets(session, cwd, region_name, ip_address, configuration_files, 'data_dir_3', None, catalog_dir)
-
         ## The following code updates the CICS Resource Definitions
-
         rdef_startup = os.path.join(resourcedef_dir, 'rdef_startup.json')
 
         if os.path.isfile(rdef_startup):
@@ -502,6 +493,17 @@ def create_region(main_configfile):
     
     ## The following code deploys the application
     deploy_application_option(session, database_type, os_type, main_config, cwd, mfdbfh_config, esuid)
+
+    if len(pac_name) > 0 and pac_config is None:
+        write_log ('No PAC config, skipping additional catalog datasets')
+    else:
+        #data_dir_1 hold the directory name, under the cwd that contains definitions of any datasets to be catalogued - this setting is optional
+        catalog_dir = os.path.join(sys_base, 'catalog')
+        catalog_datasets(session, cwd, region_name, ip_address, configuration_files, 'data_dir_1', None, catalog_dir)
+
+        #data_dir_3 hold the directory name, under the cwd that contains definitions of extra datasets to be catalogued - this setting is optional
+        catalog_datasets(session, cwd, region_name, ip_address, configuration_files, 'data_dir_3', None, catalog_dir)
+
     if  database_type == 'SQL_Postgres':
         loadlibDir = 'SQL_Postgres'
     else:

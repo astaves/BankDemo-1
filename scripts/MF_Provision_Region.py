@@ -258,6 +258,9 @@ def create_region(main_configfile):
         create_dfhdrdat =  '\"' +caspcrd + '\" /c /dp=' + rdef
         write_log ('Create resource definition file {}'.format(create_dfhdrdat))
         caspcrd_process = os.system(create_dfhdrdat)
+        if caspcrd_process != 0:
+            write_log('Unable to create resource definition file, rc={}'.format(caspcrd_process))
+            sys.exit(1)
         #change ownership to match ES user
         if os_type == 'Linux':
             dfhdrdat = os.path.join(rdef, 'dfhdrdat')

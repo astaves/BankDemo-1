@@ -257,8 +257,8 @@ uploads=*.txt *.car *.wsdl
               <mfListener>
                 <objectclass>mflistener</objectclass>
                 <mfStructVersion>18</mfStructVersion>
-                <mfUID>1.3.6.1.4.1.5043.1.22.2.67a4dfd9.7728.2</mfUID>
-                <mfServerUID>1.3.6.1.4.1.5043.06.005.1736159467.1</mfServerUID>
+                <mfUID>1.3.6.1.4.1.5043.02.018.1647534610.28</mfUID>
+                <mfServerUID>1.3.6.1.4.1.5043.06.005.1647534610.9</mfServerUID>
                 <cn>RFA</cn>
                 <mfListenerStatus>Started</mfListenerStatus>
                 <mfRequestedEndpoint>tcp:127.0.0.1:*</mfRequestedEndpoint>

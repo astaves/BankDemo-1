@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-Copyright 2010 – 2024 Rocket Software, Inc. or its affiliates. 
+Copyright 2010 – 2026 Rocket Software, Inc. or its affiliates. 
 This software may be used, modified, and distributed
 (provided this notice is included without modification)
 solely for internal demonstration purposes with other
@@ -34,7 +34,7 @@ from database.odbc import check_odbc_driver_installed
 from ESCWA.region_control import add_region, start_region, del_region, confirm_region_status, stop_region
 from ESCWA.region_config import update_region, update_region_attribute, update_alias, add_initiator, check_security
 from ESCWA.comm_control import set_jes_listener, set_commsserver_local, add_listener
-from utilities.exceptions import ESCWAException
+from utilities.exceptions import ESCWAException, InputException
 from ESCWA.resourcedef import  add_sit, add_Startup_list, add_groups, add_fct, add_ppt, add_pct, update_sit_in_use
 from ESCWA.mq_config import add_mq_listener
 from build.MFBuild import  run_ant_file
@@ -278,6 +278,7 @@ def create_region(main_configfile):
 
     session = EscwaSession("http", ip_address, 10086)
         
+    security_enabled = False
     try:
         write_log ('check if VSAM ESM is enabled')
         check_security(session)
@@ -295,6 +296,7 @@ def create_region(main_configfile):
             else:
                 mfsecretsadmin = os.path.join(install_dir, 'mfsecretsadmin.exe')
             session.logon(mfsecretsadmin, login_secrets_location)
+            security_enabled = True
         except ESCWAException as exc:
             write_log('Unable to logon to ESCWA.')
             write_log(exc)
@@ -335,7 +337,7 @@ def create_region(main_configfile):
         write_log(exc)
         sys.exit(1)
 
-    if  rfa_config != 'none':
+    if security_enabled == True and rfa_config != 'none':
         write_log ('RFA listener configuration found. Listener being added')
         try:
             add_listener(session, region_name, ip_address, rfa_config)
